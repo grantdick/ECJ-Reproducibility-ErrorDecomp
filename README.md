@@ -1,6 +1,6 @@
 # Error Decomposition for Improved Reproducibility in Evolutionary Computation
 
-Code required for paper submitted to special issue of ECJ on reproducibility in evolutionary computation. Provides a demonstration of how error decomposition can lead to better understanding of algorithm behaviour (and therefore better reproduction and interpretation of results).
+Code required for paper submitted to [special issue of ECJ on reproducibility in evolutionary computation](https://direct.mit.edu/DocumentLibrary/CallForPapers/ecj-si-rep.pdf). Provides a demonstration of how error decomposition can lead to better understanding of algorithm behaviour (and therefore better reproduction and interpretation of results).
 
 ## Running the Experiments
 
