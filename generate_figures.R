@@ -8,7 +8,7 @@ dir.create("fig", showWarnings=FALSE)
 component.lev <- c("err.t", "bias", "var.e", "var.i", "err.i")
 component.lab <- c("Total Error", expression(bias^2), expression(var[ext]), expression(var[int]), "Irreducible Error")
 
-base_theme <- list(theme_tufte(base_size=14) + theme(legend.position="bottom"),
+base_theme <- list(theme_tufte(base_size=10) + theme(legend.position="bottom"),
                    scale_color_manual(name="Component", labels=component.lab,
                                       values=c("#000000","#F8766D","#00BA38","#619CFF","#C4CAC9")),
                    scale_linetype_manual(name="Component", labels=component.lab,
@@ -34,7 +34,7 @@ plot.data %>% filter(ms %in% c(0.001, 1.0)) %>%
   ggplot(aes(x=g, y=error, colour=component, linetype=component)) +
   facet_grid(a~ms, scales="free_y") +
   geom_line() + xlab("Generations") + ylab("Error") + scale_y_log10() + base_theme
-ggsave("fig/GSGP_EDLine_MS_0.001_1.0_inclE.pdf", width=165, height=210, units="mm", device=cairo_pdf)
+ggsave("fig/GSGP_EDLine_MS_0.001_1.0_inclE.pdf", width=134, height=105, units="mm", device=cairo_pdf)
 
 
 ################
@@ -47,7 +47,7 @@ plot.data %>% filter(g > 0 & component=="bias^2") %>%
   scale_y_log10() +
   scale_fill_distiller(name=expression(bias^2), palette="Spectral", trans="log10") +
   base_theme + theme(legend.position="right")
-ggsave("fig/GSGP_Raster_Bias.pdf", width=210, height=148, units="mm", device=cairo_pdf)
+ggsave("fig/GSGP_Raster_Bias.pdf", width=134, height=75, units="mm", device=cairo_pdf)
 
 
 ################
@@ -60,7 +60,7 @@ plot.data %>% filter(g > 0 & component=="var[ext]") %>%
   scale_y_log10() +
   scale_fill_distiller(name=expression(var[ext]), palette="Spectral", trans="log10") +
   base_theme + theme(legend.position="right")
-ggsave("fig/GSGP_Raster_VarExt.pdf", width=210, height=148, units="mm", device=cairo_pdf)
+ggsave("fig/GSGP_Raster_VarExt.pdf", width=134, height=75, units="mm", device=cairo_pdf)
 
 
 ################
@@ -73,7 +73,7 @@ plot.data %>% filter(g > 0 & component=="var[int]") %>%
   scale_y_log10() +
   scale_fill_distiller(name=expression(var[int]), palette="Spectral", trans="log10") +
   base_theme + theme(legend.position="right")
-ggsave("fig/GSGP_Raster_VarInt.pdf", width=210, height=148, units="mm", device=cairo_pdf)
+ggsave("fig/GSGP_Raster_VarInt.pdf", width=134, height=75, units="mm", device=cairo_pdf)
 
 
 ################
@@ -90,7 +90,7 @@ plot.data %>%
   ggplot(aes(x=depth, y=error, colour=component, linetype=component)) +
   facet_grid(~ms, scales="free_y") +
   geom_line() + xlab("Max Mutation Tree Depth") + ylab("Error") + base_theme
-ggsave("fig/GSGP_EDLine_msxDepth_inclE.pdf", width=297, height=210, units="mm", device=cairo_pdf)
+ggsave("fig/GSGP_EDLine_msxDepth_inclE.pdf", width=134, height=95, units="mm", device=cairo_pdf)
 
 
 ################
@@ -107,7 +107,7 @@ plot.data %>%
   ggplot(aes(x=g, y=error, colour=component, linetype=component)) +
   facet_grid(~ms, scales="free_y") +
   geom_line() + xlab("Generations") + ylab("Error") + base_theme
-ggsave("fig/GSGP_EDLine_msxGen_inclE.pdf", width=297, height=210, units="mm", device=cairo_pdf)
+ggsave("fig/GSGP_EDLine_msxGen_inclE.pdf", width=134, height=84, units="mm", device=cairo_pdf)
 
 
 ################
@@ -131,4 +131,4 @@ plot.data %>%
   ggplot(aes(x=ensemble.size, y=error, colour=component, linetype=component)) +
   facet_grid(~method, scales="free_x") +
   geom_line() + xlab("Ensemble Size") + ylab("Error") + base_theme
-ggsave("fig/Ensemble_EDLine_inclE.pdf", width=297, height=210, units="mm", device=cairo_pdf)
+ggsave("fig/Ensemble_EDLine_inclE.pdf", width=134, height=95, units="mm", device=cairo_pdf)
